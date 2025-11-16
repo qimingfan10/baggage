@@ -242,9 +242,12 @@ const AccountManager = {
   hideAddAccountForm() {
     const modal = document.getElementById('addAccountModal');
     if (modal) modal.classList.remove('active');
-    // 清空输入框
-    document.getElementById('manualEmail').value = '';
-    document.getElementById('manualPassword').value = '';
+    
+    // 清空输入框（安全检查）
+    const emailInput = document.getElementById('manualEmail');
+    const passwordInput = document.getElementById('manualPassword');
+    if (emailInput) emailInput.value = '';
+    if (passwordInput) passwordInput.value = '';
     const apiKeyInput = document.getElementById('manualApiKey');
     if (apiKeyInput) apiKeyInput.value = '';
   },

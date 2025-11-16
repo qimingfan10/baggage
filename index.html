@@ -3141,13 +3141,24 @@
       document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
       });
-      event.target.closest('.nav-item').classList.add('active');
+      
+      // 安全地添加激活状态
+      if (event && event.target) {
+        const navItem = event.target.closest('.nav-item');
+        if (navItem) {
+          navItem.classList.add('active');
+        }
+      }
       
       // 更新视图内容
       document.querySelectorAll('.view-content').forEach(view => {
         view.classList.remove('active');
       });
-      document.getElementById(viewName).classList.add('active');
+      
+      const targetView = document.getElementById(viewName);
+      if (targetView) {
+        targetView.classList.add('active');
+      }
       
       // 更新标题和图标
       const titles = {
