@@ -102,6 +102,7 @@ const response = await axios.post(
 ## 免责声明
 
 本工具仅供学习和研究使用，请遵守 Windsurf 的服务条款。
+本项目仅供学习和研究使用，不得用于商业用途。使用本工具所产生的一切后果由使用者自行承担。
 
 ## License
 
