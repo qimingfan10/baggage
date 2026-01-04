@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Check out Git repository
-      uses: actions/checkout@v4  # 这里改成了 v4
+      uses: actions/checkout@v4
 
     - name: Install Node.js
-      uses: actions/setup-node@v4  # 这里改成了 v4
+      uses: actions/setup-node@v4
       with:
         node-version: 18
 
@@ -29,8 +29,13 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    # 增加这一步是为了调试，万一出错可以看到目录下到底生成了什么
+    - name: List Output Files
+      run: ls -R release
+      continue-on-error: true
+
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v4  # 这里改成了 v4
+      uses: actions/upload-artifact@v4
       with:
         name: Windsurf-Tool-Windows
-        path: dist/*.exe
+        path: release/*.exe  # <--- 这里的 dist 改成了 release
