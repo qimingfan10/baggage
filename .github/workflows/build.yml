@@ -9,12 +9,15 @@ jobs:
   build:
     runs-on: windows-latest
 
+    permissions:
+      contents: read
+
     steps:
     - name: Check out Git repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # 这里改成了 v4
 
     - name: Install Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4  # 这里改成了 v4
       with:
         node-version: 18
 
@@ -27,7 +30,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # 这里改成了 v4
       with:
         name: Windsurf-Tool-Windows
         path: dist/*.exe
