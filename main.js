@@ -62,6 +62,7 @@ let isForceUpdateActive = false;
 let isMaintenanceModeActive = false;
 let isApiUnavailable = false;
 let versionCheckInterval = null;
+let lastVersionCheckTime = 0;
 // === 修复结束 ===
 
 // 应用名称 - 必须设置为 'Windsurf' 以使用相同的 Keychain 密钥
