@@ -1,4 +1,4 @@
-name: Build Windows Exe
+name: Build Windows Exe new
 
 on:
   push:
@@ -24,6 +24,14 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
+    # === 新增步骤：先进行 Vite 编译 ===
+    - name: Build Dist Files
+      run: npm run build:vite
+
+    - name: Build Windows App
+      run: npm run build:win
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Build Windows App
       run: npm run build:win
       env:
